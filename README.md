@@ -55,8 +55,6 @@ ViewManager *-down-> StateView
 ViewManager *-down-> View
 ViewManager *-down-> TypeView
 
-
-
 StartConsoleView <|-down- StartView
 ProposeCombinationConsoleView <|-down- ProposeCombinationView
 ResumeConsoleView <|-down- ResumeView
