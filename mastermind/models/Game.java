@@ -7,7 +7,7 @@ import mastermind.types.Color;
 
 public class Game {
 
-    private static final int MAX_LONG = 3;
+    private static final int MAX_LONG = 10;
 
     private SecretCombination secretCombination;
     private List<ProposeCombination> proposedCombinations;
