@@ -1,6 +1,7 @@
 package mastermind.types;
 
 public enum Color {
+	
     RED,
     BLUE,
     YELLOW,
