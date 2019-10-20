@@ -38,4 +38,3 @@ GameView --> ResultView
 ResumeController --> ResumeView
 
 @enduml
-´´´
