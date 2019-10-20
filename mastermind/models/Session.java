@@ -1,5 +1,6 @@
 package mastermind.models;
 
+import mastermind.types.TypeView;
 import mastermind.types.StateValue;
 import java.util.List;
 import mastermind.types.Color;
@@ -8,10 +9,16 @@ public class Session  {
 
     private final State state;
     private final Game game;
+    private final TypeView typeView;
 
-    public Session() {
+    public Session(TypeView typeView) {
         this.state = new State();
         this.game = new Game();
+        this.typeView = typeView;
+    }
+    
+    public TypeView getTypeView() {
+        return this.typeView;
     }
 
     public void resume() {

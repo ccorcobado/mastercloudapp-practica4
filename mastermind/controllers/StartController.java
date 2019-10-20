@@ -1,8 +1,8 @@
 package mastermind.controllers;
 
+import mastermind.types.StateView;
 import mastermind.models.Session;
-import mastermind.views.console.SecretCombinationView;
-import mastermind.views.console.StartView;
+import mastermind.views.StartView;
 
 public class StartController extends Controller {
     
@@ -12,8 +12,8 @@ public class StartController extends Controller {
     
     @Override
     public void control(){
-        new StartView().writeIntro();
-        new SecretCombinationView().writeln(this.session.getGameWidth());
+        StartView view = (StartView) this.getView(StateView.START);
+        view.writeIntro(this.session.getGameWidth());
         this.session.next();
     }
 }

@@ -7,6 +7,7 @@ import mastermind.controllers.ProposeController;
 import mastermind.controllers.ResumeController;
 import mastermind.controllers.StartController;
 import mastermind.models.Session;
+import mastermind.types.TypeView;
 import mastermind.types.StateValue;
 
 public class Mastermind {
@@ -14,8 +15,8 @@ public class Mastermind {
     private final Session session;
     private final Map<StateValue, Controller> controllers;
 
-    private Mastermind() {
-        this.session = new Session();
+    private Mastermind(TypeView typeView) {
+        this.session = new Session(typeView);
         this.controllers = new HashMap<>();
         this.controllers.put(StateValue.INITIAL, new StartController(this.session));
         this.controllers.put(StateValue.IN_GAME, new ProposeController(this.session));
@@ -34,6 +35,6 @@ public class Mastermind {
     }
 
     public static void main(String[] args) {
-        new Mastermind().play();
+        new Mastermind(TypeView.CONSOLE).play();
     }
 }

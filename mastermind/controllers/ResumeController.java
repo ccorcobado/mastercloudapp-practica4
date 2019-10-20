@@ -1,7 +1,8 @@
 package mastermind.controllers;
 
+import mastermind.types.StateView;
 import mastermind.models.Session;
-import mastermind.views.console.ResumeView;
+import mastermind.views.ResumeView;
 
 public class ResumeController extends Controller {
 
@@ -11,7 +12,8 @@ public class ResumeController extends Controller {
 
     @Override
     public void control() {
-        if (new ResumeView().newGame()) {
+        ResumeView view = (ResumeView) this.getView(StateView.RESUME);
+        if (view.newGame()) {
             this.session.resume();
         } else 
             this.session.next();
