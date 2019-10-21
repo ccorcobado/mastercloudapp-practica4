@@ -1,7 +1,6 @@
 package mastermind.controllers;
 
 import mastermind.models.Session;
-import mastermind.types.StateView;
 import mastermind.views.View;
 import mastermind.views.ViewManager;
 
@@ -13,10 +12,10 @@ public abstract class Controller {
         this.session = session;
     }
     
-    protected View getView(StateView stateView) {
+    protected View getView() {
         return ViewManager
             .getInstance(this.session.getTypeView())
-            .get(stateView);
+            .get(this.session.getStateValue());
     }
 
     public abstract void control();

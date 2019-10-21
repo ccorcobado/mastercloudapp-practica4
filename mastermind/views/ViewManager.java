@@ -2,7 +2,7 @@ package mastermind.views;
 
 import java.util.HashMap;
 import java.util.Map;
-import mastermind.types.StateView;
+import mastermind.types.StateValue;
 import mastermind.types.TypeView;
 import static mastermind.types.TypeView.CONSOLE;
 import mastermind.views.console.ProposeCombinationConsoleView;
@@ -12,7 +12,7 @@ import mastermind.views.console.StartConsoleView;
 public class ViewManager {
 
     private static ViewManager myself;
-    private Map<StateView, View> viewsMap = new HashMap<>();
+    private Map<StateValue, View> viewsMap = new HashMap<>();
 
     private ViewManager(TypeView viewType) {
         switch (viewType) {
@@ -30,17 +30,17 @@ public class ViewManager {
         return myself;
     }
 
-    private Map<StateView, View> loadConsoleViews() {
-        Map<StateView, View> viewsConsoleMap = new HashMap<>();
+    private Map<StateValue, View> loadConsoleViews() {
+        Map<StateValue, View> viewsConsoleMap = new HashMap<>();
         
-        viewsConsoleMap.put(StateView.START, new StartConsoleView());
-        viewsConsoleMap.put(StateView.PROPOSE, new ProposeCombinationConsoleView());
-        viewsConsoleMap.put(StateView.RESUME, new ResumeConsoleView());
+        viewsConsoleMap.put(StateValue.INITIAL, new StartConsoleView());
+        viewsConsoleMap.put(StateValue.IN_GAME, new ProposeCombinationConsoleView());
+        viewsConsoleMap.put(StateValue.FINAL, new ResumeConsoleView());
         
         return viewsConsoleMap;
     }
 
-    public View get(StateView viewGameType) {
-        return (View) this.viewsMap.get(viewGameType).replicate();
+    public View get(StateValue stateValue) {
+        return (View) this.viewsMap.get(stateValue).replicate();
     }
 }

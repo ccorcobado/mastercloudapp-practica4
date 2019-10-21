@@ -1,7 +1,6 @@
 package mastermind.controllers;
 
 import java.util.List;
-import mastermind.types.StateView;
 import mastermind.models.Session;
 import mastermind.types.Color;
 import mastermind.views.ProposeCombinationView;
@@ -14,7 +13,7 @@ public class ProposeController extends Controller {
 
     @Override
     public void control() {
-        ProposeCombinationView view = (ProposeCombinationView) this.getView(StateView.PROPOSE);
+        ProposeCombinationView view = (ProposeCombinationView) this.getView();
         List<Color> colors = view.readProposeCombination();
         this.session.addProposeCombination(colors);
         view.write(this.session);
